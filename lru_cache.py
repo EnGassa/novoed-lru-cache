@@ -13,7 +13,7 @@ class LRUCache:
         if val:
             self.__update_usage(key) 
         else:
-            val = -1
+            val = None
         return val
         
     def __update_usage(self, key):
