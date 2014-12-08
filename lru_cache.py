@@ -6,7 +6,7 @@ class LRUCache:
         self.__usage = []
         self.__store = {}
 
-    # @return an integer
+    # @return an object
     def get(self, key):
         val = self.__store.get(key)
         # update usage order
@@ -15,7 +15,8 @@ class LRUCache:
         else:
             val = None
         return val
-        
+    
+    # @param key, an integ
     def __update_usage(self, key):
         try:
             idx = self.__usage.index(key)
