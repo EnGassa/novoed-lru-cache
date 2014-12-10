@@ -1,4 +1,5 @@
 import unittest
+import random
 from lru_cache import LRUCache
 
 
@@ -58,6 +59,16 @@ class TestLRUCache(unittest.TestCase):
             self.cache.set(str(i), i)
         self.cache.set('3', 'abcdef')
         self.assertEqual(self.cache.get('3'), 'abcdef')
+
+    def testInsertingRandomNumberOfElements(self):
+        for i in range(0, 1000):
+            self.cache.set(random.randint(1, 100), i)
+        count = 0
+        for i in range(1, 101):
+            if self.cache.get(str(i)):
+                self.cache.set(str(i), None)
+                count += 1
+        self.assertLessEqual(count, 5)
 
 if __name__ == '__main__':
     unittest.main()
