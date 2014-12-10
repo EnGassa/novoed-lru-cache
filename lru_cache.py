@@ -1,3 +1,7 @@
+# Run Tests:
+# python -m unittest tests.unit_tests
+# from the root of the repository
+
 class LRUCache():
 
     # @param capacity, an integer
