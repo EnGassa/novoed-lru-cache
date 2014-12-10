@@ -1,4 +1,4 @@
-class LRUCache:
+class LRUCache():
 
     # @param capacity, an integer
     def __init__(self, capacity):
@@ -16,11 +16,11 @@ class LRUCache:
             val = None
         return val
     
-    # @param key, an integ
+    # @param key
     def __update_usage(self, key):
         try:
             idx = self.__usage.index(key)
-            self.__usage.remove(key)
+            self.__usage = self.__usage[0:idx] + self.__usage[idx+1:]
         except:
             pass
         self.__usage.insert(0, key)
